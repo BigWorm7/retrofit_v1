@@ -1,5 +1,7 @@
 package com.pt2.fd;
 
+import android.widget.Button;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Pytania {
@@ -10,6 +12,8 @@ public class Pytania {
     private String odpb;
     private String odpc;
     private int poprawna;
+
+
 
     public Pytania(String trescpytania, String odpa, String odpb, String odpc, int poprawna) {
         this.trescpytania = trescpytania;

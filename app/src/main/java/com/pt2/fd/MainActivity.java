@@ -1,6 +1,7 @@
 package com.pt2.fd;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView trescPytania;
     private RadioButton rba, rbb, rbc;
     private String odp;
+    private int poprawna;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
         Call<List<Pytania>> call = jsonPlaceHolderApi.getPytania();
+        trescPytania = findViewById(R.id.pyt1);
+        rba = findViewById(R.id.odpa);
+        rbb = findViewById(R.id.odpb);
+        rbc = findViewById(R.id.odpc);
+        button = findViewById(R.id.buttons);
         call.enqueue(
                 new Callback<List<Pytania>>() {
                     @Override
@@ -44,9 +52,12 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, ""+response.code(), Toast.LENGTH_SHORT).show();
                             return;
                         }
-                            pytania = response.body();
-                            Toast.makeText(MainActivity.this, ""+pytania.get(0).getTrescpytania(),Toast.LENGTH_SHORT).show();
 
+                            pytania = response.body();
+
+                            rba.setText(pytania.get(0).getOdpa());
+                            rbb.setText(pytania.get(0).getOdpb());
+                            rbc.setText(pytania.get(0).getOdpc());
                     }
 
                     @Override
