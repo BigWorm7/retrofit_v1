@@ -11,6 +11,14 @@ public class Pytania {
     private String odpc;
     private int poprawna;
 
+    public Pytania(String trescpytania, String odpa, String odpb, String odpc, int poprawna) {
+        this.trescpytania = trescpytania;
+        this.odpa = odpa;
+        this.odpb = odpb;
+        this.odpc = odpc;
+        this.poprawna = poprawna;
+    }
+
     public String getTrescpytania() {
         return trescpytania;
     }
