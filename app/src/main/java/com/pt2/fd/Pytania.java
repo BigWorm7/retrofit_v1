@@ -7,9 +7,11 @@ import com.google.gson.annotations.SerializedName;
 public class Pytania {
     @SerializedName("tresc")
     private String trescpytania;
-
+    @SerializedName("A")
     private String odpa;
+    @SerializedName("B")
     private String odpb;
+    @SerializedName("C")
     private String odpc;
     private int poprawna;
 
